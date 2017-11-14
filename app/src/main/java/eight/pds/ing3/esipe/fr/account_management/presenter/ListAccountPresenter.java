@@ -1,0 +1,74 @@
+package eight.pds.ing3.esipe.fr.account_management.presenter;
+
+
+
+
+
+import org.reactivestreams.Subscriber;
+import org.reactivestreams.Subscription;
+
+import java.util.List;
+
+import eight.pds.ing3.esipe.fr.account_management.AccountApplication;
+import eight.pds.ing3.esipe.fr.account_management.model.Account;
+import eight.pds.ing3.esipe.fr.account_management.model.AccountService;
+import eight.pds.ing3.esipe.fr.account_management.view.ListActivityView;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.disposables.Disposable;
+
+/**
+ * Created by antho on 12/11/2017.
+ */
+
+public class ListAccountPresenter implements Presenter<ListActivityView> {
+
+    private ListActivityView listActivityView;
+    private Subscription subscription;
+    private List<Account> accountList;
+
+    @Override
+    public void attachView(ListActivityView view) {
+        this.listActivityView = view;
+    }
+
+    @Override
+    public void detachView() {
+        this.listActivityView = null;
+
+
+    }
+
+    public void loadAccounts(){
+
+        if(subscription !=  null) subscription.cancel();
+
+        AccountApplication application = AccountApplication.get(listActivityView.getContext());
+        AccountService accountService = application.getAccountService();
+        /*subscription = */accountService.getAccounts()
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(application.defaultSubscriberScheduler())
+                .subscribe(new Observer<List<Account>>() {
+                    @Override
+                    public void onSubscribe(@NonNull Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(@NonNull List<Account> accountList) {
+                        ListAccountPresenter.this.accountList = accountList;
+                    }
+
+                    @Override
+                    public void onError(@NonNull Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        listActivityView.showAccountList(accountList);
+                    }
+                });
+    }
+}

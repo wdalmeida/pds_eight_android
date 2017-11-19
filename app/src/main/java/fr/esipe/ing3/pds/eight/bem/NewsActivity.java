@@ -17,7 +17,7 @@ public class NewsActivity extends AppCompatActivity {
 
 	private static final String TAG = "NEWS ACTIVITY" ;
 	private RSSAdapter adapter;
-	private List<RSSFeed> contacts = new ArrayList<>();
+	private List<RSSFeed> rssFeeds = new ArrayList<>();
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,9 +28,9 @@ public class NewsActivity extends AppCompatActivity {
         recList.setLayoutManager(llm);
 
         for(int i=1;i<101;i++){
-			contacts.add(new RSSFeed("Test"+i,"Test"+i,"Test"+i));
+			rssFeeds.add(new RSSFeed("Test"+i,"Test"+i,"Test"+i));
 		}
-		adapter = new RSSAdapter(contacts, this);
+		adapter = new RSSAdapter(rssFeeds, this);
 		recList.setAdapter(adapter);
 
 	}

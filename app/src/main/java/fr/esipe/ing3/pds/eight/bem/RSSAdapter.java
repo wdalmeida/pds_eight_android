@@ -45,7 +45,7 @@ public class RSSAdapter extends RecyclerView.Adapter<RSSAdapter.RSSViewHolder> {
     public RSSViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View itemView = LayoutInflater.
                 from(viewGroup.getContext()).
-                inflate(R.layout.rss_card, viewGroup, false);
+                inflate(R.layout.feedrss_card, viewGroup, false);
 
         return new RSSViewHolder(itemView);
     }

@@ -1,3 +1,7 @@
 <resources>
+<<<<<<< HEAD
     <string name="app_name">account-management</string>
+=======
+    <string name="app_name">BEM</string>
+>>>>>>> master
 </resources>

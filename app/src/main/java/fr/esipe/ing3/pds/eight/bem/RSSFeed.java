@@ -5,9 +5,9 @@ package fr.esipe.ing3.pds.eight.bem;
  */
 
 public class RSSFeed {
-    protected String title;
-    protected String link;
-    protected String description;
+    private String title;
+	private String link;
+	private String description;
 
 	public RSSFeed() {
 	}

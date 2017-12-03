@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+<<<<<<< HEAD
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 	<color name="lightGrey">#808080</color>
 	<color name="whitedark">#e6e6e6</color>
+=======
+>>>>>>> resolution bug
 
     <color name="black">#000000</color>
     <color name="white">#ffffff</color>
@@ -18,4 +21,9 @@
     <color name="secondary_text">#727272</color>
     <color name="icons">#FFFFFF</color>
     <color name="divider">#cbcbcb</color>
+<<<<<<< HEAD
 </resources>
+=======
+</resources>
+
+>>>>>>> resolution bug

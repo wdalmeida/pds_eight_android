@@ -31,7 +31,7 @@ import retrofit2.http.POST;
 
 public interface AccountService {
 
-    String ENDPOINT = "http://192.168.1.13:8181/";
+    String ENDPOINT = "http://192.168.4.100:80/";
 
 
     @POST("auth")

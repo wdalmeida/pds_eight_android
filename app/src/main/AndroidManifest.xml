@@ -7,14 +7,39 @@
 
     <application
         android:name=".AccountApplication"
+<<<<<<< HEAD
         package="fr.esipe.ing3.pds.eight.bem"
+=======
+>>>>>>> resolution bug
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+<<<<<<< HEAD
         <activity android:name=".view.ListAccountActivity">
+=======
+        <activity
+            android:name=".view.ListAccountActivity"
+            android:screenOrientation="portrait">
+
+            <!--
+            <intent-filter>
+               <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            -->
+        </activity>
+        <activity
+            android:name=".view.LoginActivity"
+            android:label="@string/title_activity_login"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".view.HomeActivity"
+            android:screenOrientation="portrait">
+>>>>>>> resolution bug
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

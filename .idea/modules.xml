@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://D:\Project\Android\eight-android\account-management.iml" filepath="D:\Project\Android\eight-android\account-management.iml" />
+=======
+>>>>>>> resolution bug
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/eight-android.iml" filepath="$PROJECT_DIR$/eight-android.iml" />
     </modules>

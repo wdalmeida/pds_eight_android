@@ -1,5 +1,6 @@
 package eight.pds.ing3.esipe.fr.account_management;
 
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -43,7 +44,7 @@ public class AccountAdapter extends RecyclerView.Adapter<AccountAdapter.AccountV
         Account account = accountList.get(position);
         Context context = holder.accountNumberTextView.getContext();
         holder.account = account;
-        holder.accountNumberTextView.setText(String.valueOf(account.getAccountId()));
+        holder.accountNumberTextView.setText("N° "+String.valueOf(account.getAccountId()));
         holder.accountTypeTextView.setText(account.getType());
         holder.balanceTextView.setText(String.valueOf(account.getBalance()));
 
@@ -66,6 +67,7 @@ public class AccountAdapter extends RecyclerView.Adapter<AccountAdapter.AccountV
         public AccountViewHolder(View itemView) {
             super(itemView);
             contentLayout = itemView.findViewById(R.id.layout_content);
+            contentLayout.setBackgroundColor(Color.parseColor("#D12566"));
             accountNumberTextView = itemView.findViewById(R.id.text_account_number);
             accountTypeTextView = itemView.findViewById(R.id.text_account_type);
             balanceTextView = itemView.findViewById(R.id.text_balance);

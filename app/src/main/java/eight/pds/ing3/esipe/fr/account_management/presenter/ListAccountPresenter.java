@@ -40,13 +40,16 @@ public class ListAccountPresenter implements Presenter<ListActivityView> {
 
     }
 
-    public void loadAccounts(){
+    public void loadAccounts(String jwtToken){
 
         if(subscription !=  null) subscription.cancel();
 
         AccountApplication application = AccountApplication.get(listActivityView.getContext());
+
+        String authHeader = "Bearer " + jwtToken;
+
         AccountService accountService = application.getAccountService();
-        /*subscription = */accountService.getAccounts()
+        /*subscription = */accountService.getAccounts(authHeader)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(application.defaultSubscriberScheduler())
                 .subscribe(new Observer<List<Account>>() {

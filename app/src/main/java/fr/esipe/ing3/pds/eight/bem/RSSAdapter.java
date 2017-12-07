@@ -2,15 +2,19 @@ package fr.esipe.ing3.pds.eight.bem;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 /**
  * @author Warren D'ALMEIDA
@@ -39,6 +43,15 @@ public class RSSAdapter extends RecyclerView.Adapter<RSSAdapter.RSSViewHolder> {
 		RSSViewHolder.title.setText(rss.getTitle());
 		RSSViewHolder.link.setText(rss.getLink());
 		RSSViewHolder.description.setText(rss.getDescription());
+		AsyncTask<String, Void, Bitmap> asyncTask = new DownloadImage(RSSViewHolder.img)
+				.execute(rss.getImg());
+		try {
+			RSSViewHolder.img.setImageBitmap(asyncTask.get());
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		} catch (ExecutionException e) {
+			e.printStackTrace();
+		}
 		Log.d(TAG, "onBindViewHolder: "+ RSSViewHolder.title.getText().toString());
 	}
 
@@ -55,6 +68,8 @@ public class RSSAdapter extends RecyclerView.Adapter<RSSAdapter.RSSViewHolder> {
 		protected TextView title;
 		protected TextView link;
 		protected TextView description;
+		protected ImageView img;
+
 
 
 		public RSSViewHolder(View v) {
@@ -62,6 +77,7 @@ public class RSSAdapter extends RecyclerView.Adapter<RSSAdapter.RSSViewHolder> {
 			title = v.findViewById(R.id.txtTitle);
 			link = v.findViewById(R.id.txtLink);
 			description = v.findViewById(R.id.txtDescription);
+			img = v.findViewById(R.id.imageView);
 			v.setOnClickListener(v1 -> {
 				Uri uri = Uri.parse(link.getText().toString());
 				Intent intent = new Intent(context, RssWebView.class);

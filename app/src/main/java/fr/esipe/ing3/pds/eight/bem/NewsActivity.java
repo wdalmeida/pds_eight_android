@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +23,7 @@ public class NewsActivity extends AppCompatActivity{
 
 	private static final String TAG = "NEWS ACTIVITY" ;
 	private RecyclerView recList;
+	private ImageView imgView;
 
 
 	/**
@@ -35,6 +37,7 @@ public class NewsActivity extends AppCompatActivity{
         setContentView(R.layout.list_news);
 		Log.d(TAG, "onCreate: starting");
 		recList = findViewById(R.id.cardList);
+		//imgView = findViewById(R.id.imageView);
         LinearLayoutManager llm = new LinearLayoutManager(this);
         recList.setLayoutManager(llm);
 		callOneNews();

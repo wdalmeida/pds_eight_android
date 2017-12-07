@@ -1,9 +1,4 @@
 <resources>
-<<<<<<< HEAD
-	<string name="app_name">BEM</string>
-	<string name="article_img">Image de l\'article</string>
-=======
-
 	<string name="app_name">BEM</string>
     <string name="title_activity_login">Sign in</string>
     <string name="search_hint">Recherche</string>
@@ -21,5 +16,5 @@
         completions."
     </string>
 
->>>>>>> resolution bug
+	<string name="article_img">Image de l\'article</string>
 </resources>

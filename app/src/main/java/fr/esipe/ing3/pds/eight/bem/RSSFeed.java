@@ -8,7 +8,7 @@ public class RSSFeed {
     private String title;
 	private String link;
 	private String description;
-	private String img;
+	private String imgLink;
 
 	public RSSFeed() {
 	}
@@ -19,11 +19,11 @@ public class RSSFeed {
 		this.description = description;
 	}
 
-	public RSSFeed(String title, String link, String description, String img) {
+	public RSSFeed(String title, String link, String description, String imgLink) {
 		this.title = title;
 		this.link = link;
 		this.description = description;
-		this.img = img;
+		this.imgLink = imgLink;
 	}
 
 	public String getTitle() {
@@ -50,11 +50,21 @@ public class RSSFeed {
 		this.description = description;
 	}
 
-	public String getImg() {
-		return img;
+	public String getImgLink() {
+		return imgLink;
 	}
 
-	public void setImg(String img) {
-		this.img = img;
+	public void setImgLink(String imgLink) {
+		this.imgLink = imgLink;
+	}
+
+	@Override
+	public String toString() {
+		return "RSSFeed{" +
+				"title='" + title + '\'' +
+				", link='" + link + '\'' +
+				", description='" + description + '\'' +
+				", imgLink='" + imgLink + '\'' +
+				'}';
 	}
 }

@@ -7,7 +7,6 @@ import android.util.Log;
 import android.widget.ImageView;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 
 import static android.content.ContentValues.TAG;
@@ -19,6 +18,7 @@ import static android.content.ContentValues.TAG;
 public class DownloadImage extends AsyncTask<String, Void, Bitmap> {
 
 	private ImageView imgv;
+	private Bitmap bit;
 
 	public DownloadImage(ImageView img) {
 		this.imgv = img;
@@ -26,23 +26,20 @@ public class DownloadImage extends AsyncTask<String, Void, Bitmap> {
 
 	@Override
 	protected Bitmap doInBackground(String... geturl) {
-		BitmapFactory bf =null;
-		Bitmap bit = null;
-		Log.d(TAG, "doInBackground: "+ geturl[0].toString());
 		try {
+			Log.d(TAG, "doInBackground: "+ geturl[0]);
 			URL url = new URL(geturl[0]);
 			bit = BitmapFactory.decodeStream(url.openStream());
-		} catch (MalformedURLException e) {
-			Log.d(TAG, "doInBackground: HERE");
-			e.printStackTrace();
 		} catch (IOException e) {
-			Log.d(TAG, "doInBackground: HEREEEEEEEE");
-
+			Log.d(TAG, "doInBackground: Error");
 			e.printStackTrace();
 		}
-		return  bit;
+		return bit;
 	}
 
-	protected void onPostExecute(RSSFeed feed) {
+	@Override
+	protected void onPostExecute(Bitmap bit) {
+		imgv.setImageBitmap(bit);
+
 	}
 }

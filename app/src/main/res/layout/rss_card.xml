@@ -41,21 +41,11 @@
 				android:id="@+id/txtDescription"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:gravity="center_vertical"
+				android:gravity="fill_horizontal"
 				android:textSize="12sp"
 				android:layout_below="@id/txtTitle"
 				android:layout_marginTop="10dp"
 				android:layout_marginLeft="5dp" />
-
-			<TextView
-				android:id="@+id/txtLink"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:gravity="center_vertical"
-				android:textSize="12sp"
-				android:layout_below="@id/txtDescription"
-				android:layout_marginTop="10dp"
-				android:layout_marginStart="5dp"/>
 		</RelativeLayout>
 	</android.support.v7.widget.CardView>
 

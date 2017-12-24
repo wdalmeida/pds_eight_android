@@ -39,7 +39,8 @@ public class RSSAdapter extends RecyclerView.Adapter<RSSAdapter.RSSViewHolder> {
 	public void onBindViewHolder(RSSViewHolder RSSViewHolder, int i) {
 		RSSFeed rss = rssFeeds.get(i);
 		RSSViewHolder.title.setText(rss.getTitle());
-		RSSViewHolder.link.setText(rss.getLink());
+		RSSViewHolder.link=rss.getLink();
+	//	RSSViewHolder.link.setText(rss.getLink());
 		RSSViewHolder.description.setText(rss.getDescription());
 		Log.d(TAG, "onBindViewHolder: "+rss.toString());
 		AsyncTask<String, Void, Bitmap> asyncTask = new DownloadImage(RSSViewHolder.img)
@@ -58,7 +59,7 @@ public class RSSAdapter extends RecyclerView.Adapter<RSSAdapter.RSSViewHolder> {
 
 	public class RSSViewHolder extends RecyclerView.ViewHolder {
 		protected TextView title;
-		protected TextView link;
+		protected String link;
 		protected TextView description;
 		protected ImageView img;
 
@@ -67,12 +68,12 @@ public class RSSAdapter extends RecyclerView.Adapter<RSSAdapter.RSSViewHolder> {
 		public RSSViewHolder(View v) {
 			super(v);
 			title = v.findViewById(R.id.txtTitle);
-			link = v.findViewById(R.id.txtLink);
+		//	link = v.findViewById(R.id.txtLink);
 			description = v.findViewById(R.id.txtDescription);
 			img = v.findViewById(R.id.imageView);
 			v.setOnClickListener(v1 -> {
 				Intent intent = new Intent(context, RssWebView.class);
-				intent.putExtra("EXTRA_SESSION_ID", link.getText().toString());
+				intent.putExtra("EXTRA_SESSION_ID", link);
 				context.startActivity(intent);
 			});
 		}

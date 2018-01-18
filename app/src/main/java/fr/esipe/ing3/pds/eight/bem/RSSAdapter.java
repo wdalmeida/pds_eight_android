@@ -40,8 +40,7 @@ public class RSSAdapter extends RecyclerView.Adapter<RSSAdapter.RSSViewHolder> {
 		RSSFeed rss = rssFeeds.get(i);
 		RSSViewHolder.title.setText(rss.getTitle());
 		RSSViewHolder.link=rss.getLink();
-	//	RSSViewHolder.link.setText(rss.getLink());
-		RSSViewHolder.description.setText(rss.getDescription());
+		RSSViewHolder.description.setText(rss.getDescription().replaceAll("[\r\n]+",""));
 		Log.d(TAG, "onBindViewHolder: "+rss.toString());
 		AsyncTask<String, Void, Bitmap> asyncTask = new DownloadImage(RSSViewHolder.img)
 				.execute(rss.getImgLink());
@@ -68,7 +67,6 @@ public class RSSAdapter extends RecyclerView.Adapter<RSSAdapter.RSSViewHolder> {
 		public RSSViewHolder(View v) {
 			super(v);
 			title = v.findViewById(R.id.txtTitle);
-		//	link = v.findViewById(R.id.txtLink);
 			description = v.findViewById(R.id.txtDescription);
 			img = v.findViewById(R.id.imageView);
 			v.setOnClickListener(v1 -> {

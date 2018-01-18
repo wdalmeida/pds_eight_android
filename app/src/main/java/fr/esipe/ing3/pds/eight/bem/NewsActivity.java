@@ -45,14 +45,13 @@ public class NewsActivity extends AppCompatActivity{
 	/**
 	 *
 	 */
-	private void callOneNews(){
+	protected void callOneNews(){
 		Log.d(TAG, "CallOneNews");
 		Call<RSSFeed> rssFeedCall= API.get().getRetrofitService().getOneNews(1);
 		rssFeedCall.enqueue(new Callback<RSSFeed>() {
 			@Override
 			public void onResponse(Call<RSSFeed> call, Response<RSSFeed> response) {
 				RSSFeed rss = response.body();
-				Log.d(TAG, "onResponse: "+rss.getLink());
 				Log.d(TAG, "onResponse: "+rss.getLink());
 				List<RSSFeed> rssFeedList = new ArrayList<>();
 				rssFeedList.add(rss);

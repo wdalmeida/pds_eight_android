@@ -53,7 +53,6 @@ public class NewsActivity extends AppCompatActivity{
 			public void onResponse(Call<RSSFeed> call, Response<RSSFeed> response) {
 				RSSFeed rss = response.body();
 				Log.d(TAG, "onResponse: "+rss.getLink());
-				Log.d(TAG, "onResponse: "+rss.getLink());
 				List<RSSFeed> rssFeedList = new ArrayList<>();
 				rssFeedList.add(rss);
 				recList.setAdapter(new RSSAdapter(rssFeedList,getApplicationContext()));

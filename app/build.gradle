@@ -25,6 +25,11 @@ android {
 	lintOptions {
 		abortOnError false
 	}
+	testOptions {
+		unitTests {
+			includeAndroidResources = true
+		}
+	}
 }
 
 dependencies {
@@ -43,6 +48,11 @@ dependencies {
     androidTestImplementation'org.mockito:mockito-android:2.7.22'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
 	testImplementation group: 'org.mockito', name: 'mockito-core', version: '2.13.0'
+	testCompile group: 'org.mockito', name: 'mockito-core', version: '2.13.0'
+	testCompile group: 'org.powermock', name: 'powermock-module-junit4', version: '1.7.3'
+	testCompile group: 'org.powermock', name: 'powermock-api-mockito', version: '1.7.3'
+	testCompile "org.robolectric:robolectric:3.6.1"
+	androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     implementation 'com.android.support:recyclerview-v7:26.1.0'
 	implementation 'com.facebook.stetho:stetho:1.5.0'

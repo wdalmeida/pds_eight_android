@@ -39,7 +39,8 @@ public class DownloadImage extends AsyncTask<String, Void, Bitmap> {
 
 	@Override
 	protected void onPostExecute(Bitmap bit) {
+		Log.d(TAG, "onPostExecute: set image");
 		imgv.setImageBitmap(bit);
-
 	}
+
 }

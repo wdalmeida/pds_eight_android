@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">BEM</string>
+	<string name="app_name">BEM</string>
+	<string name="article_img">Image de l\'article</string>
 </resources>

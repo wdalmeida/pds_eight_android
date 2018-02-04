@@ -176,3 +176,7 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+/.editorconfig
+
+#Others
+app/src/main/java/fr/esipe/ing3/pds/eight/bem/MyApplication.java

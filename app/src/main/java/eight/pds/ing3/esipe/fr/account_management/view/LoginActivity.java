@@ -7,6 +7,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.annotation.NonNull;
@@ -26,12 +27,15 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -58,6 +62,7 @@ public class LoginActivity extends AppCompatActivity implements LoginMvpView  {
     private CoordinatorLayout coordinatorLayout;
     private EditText userId;
     private EditText password;
+    private Button b;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -72,6 +77,13 @@ public class LoginActivity extends AppCompatActivity implements LoginMvpView  {
 
             userId = findViewById(R.id.userid);
             password = findViewById(R.id.password);
+
+            b = findViewById(R.id.sign_in_button);
+
+            userId.addTextChangedListener(textWatcher);
+            password.addTextChangedListener(textWatcher);
+
+            checkIfFormIsValid();
 
             presenter = new LoginPresenter();
             presenter.attachView(this);
@@ -109,13 +121,51 @@ public class LoginActivity extends AppCompatActivity implements LoginMvpView  {
     @Override
     public void showLoginError() {
         Log.d("LoginActivity", "showLoginError: ");
-        Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content),"Informations de connexion incorrecte",Snackbar.LENGTH_LONG);
+        Snackbar snackbar = Snackbar.make(findViewById(R.id.loginActivityLinearLayout),"Informations de connexion incorrecte",Snackbar.LENGTH_LONG);
+        snackbar.getView().setBackgroundColor(Color.WHITE);
         snackbar.show();
     }
 
     public void onSignInButtonClick(View view) {
+
+
+        if (view != null) {
+            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
         presenter.authenticate(userId.getText().toString(),password.getText().toString());
     }
+
+    private void checkIfFormIsValid(){
+
+        Log.d("LoginActivity", "checkIfFormIsValid: userId ["+userId.getText().toString());
+
+        if(userId.getText().toString().equals("") || password.getText().toString().equals("")){
+            b.setEnabled(false);
+        }
+        else {
+            b.setEnabled(true);
+        }
+
+    }
+
+    private TextWatcher textWatcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            checkIfFormIsValid();
+        }
+
+        @Override
+        public void afterTextChanged(Editable editable) {
+
+
+        }
+    };
 
     public boolean isInternetConnectionAvailable(){
         ConnectivityManager connectivityManager = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);

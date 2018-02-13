@@ -2,10 +2,8 @@ package eight.pds.ing3.esipe.fr.account_management.view;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -18,25 +16,25 @@ public class HomeActivity extends AppCompatActivity implements MvpView {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home2);
+        setContentView(R.layout.activity_home);
 
-        SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
+    /*    SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
         String firstName = sharedPref.getString("firstName","none");
         String lastName = sharedPref.getString("lastName","none");
 
         Log.d("HomeActivity", "onCreate: firstName" + firstName);
-        Log.d("HomeActivity", "onCreate: lastName" + lastName);
+        Log.d("HomeActivity", "onCreate: lastName" + lastName); */
 
      //   if(!firstName.equals("none") && !lastName.equals("none")){
-         customerName =   findViewById(R.id.hello_textView);
-         customerName.setText(firstName + " " + lastName);
+        // customerName =   findViewById(R.id.hello_textView);
+         //customerName.setText(firstName + " " + lastName);
         // customerName.setVisibility(View.VISIBLE);
        // }
 
 
     }
 
-    public void onMyAccountButtonClick(View view) {
+    public void onClick(View view) {
         Intent intent = new Intent(getContext(),LoginActivity.class);
         startActivity(intent);
     }

@@ -54,17 +54,28 @@ public class TransactionActivity extends AppCompatActivity implements Transactio
 
             searchView = findViewById(R.id.searchView);
 
+            searchView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                searchView.setIconified(false);
+
+            }
+            });
+
 
             contentLayout = findViewById(R.id.name_header2);
 
             accountNumberTextView.setText("N° " + account.getAccountId());
             accountTypeTextView.setText(account.getType());
-            balanceTextView.setText(String.valueOf(account.getBalance()));
+
+        if(account.getBalance() > 0)
+            balanceTextView.setText("+ "+String.valueOf(account.getBalance())+" €");
+        else balanceTextView.setText(String.valueOf(account.getBalance())+" €");
 
             SimpleDateFormat sf = new SimpleDateFormat("dd/MM/yyyy");
             Date today = new Date();
 
-            todayTextView.setText(sf.format(today));
+            todayTextView.setText("SOLDE AU "+sf.format(today));
 
             if (account.getType().equals("CCB")) {
                 contentLayout.setBackgroundColor(Color.parseColor("#D12566"));

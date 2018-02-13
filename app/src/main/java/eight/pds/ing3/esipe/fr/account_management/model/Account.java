@@ -1,21 +1,27 @@
 package eight.pds.ing3.esipe.fr.account_management.model;
 
+import java.io.Serializable;
+
 /**
  * Created by antho on 12/11/2017.
  */
 
-public class Account {
+public class Account implements Serializable {
 
-private String accountId;
+private String accountNumber;
     private String type;
     private float balance;
 
     public String getAccountId() {
-        return accountId;
+        return accountNumber;
     }
 
-    public void setAccountId(String accountId) {
-        this.accountId = accountId;
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
+    public void setAccountNumber(String accountNumber) {
+        this.accountNumber = accountNumber;
     }
 
     public String getType() {

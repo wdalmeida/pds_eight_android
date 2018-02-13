@@ -1,15 +1,12 @@
 package eight.pds.ing3.esipe.fr.account_management.presenter;
 
-import android.support.design.widget.Snackbar;
 import android.util.Log;
 
 import org.reactivestreams.Subscription;
 
 import java.io.IOException;
-import java.util.List;
 
-import eight.pds.ing3.esipe.fr.account_management.AccountApplication;
-import eight.pds.ing3.esipe.fr.account_management.model.Account;
+import eight.pds.ing3.esipe.fr.account_management.app.AccountApplication;
 import eight.pds.ing3.esipe.fr.account_management.model.AccountService;
 import eight.pds.ing3.esipe.fr.account_management.model.Credential;
 import eight.pds.ing3.esipe.fr.account_management.view.LoginMvpView;
@@ -18,7 +15,6 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 import okhttp3.ResponseBody;
-import retrofit2.Response;
 
 
 /**

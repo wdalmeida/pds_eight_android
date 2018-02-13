@@ -8,7 +8,7 @@ import eight.pds.ing3.esipe.fr.account_management.model.Account;
  * Created by antho on 12/11/2017.
  */
 
-public interface ListActivityView extends MvpView {
+public interface ListAccountView extends MvpView {
 
     void showAccountList(List<Account> accountList);
 

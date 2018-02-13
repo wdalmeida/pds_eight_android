@@ -1,6 +1,7 @@
 package eight.pds.ing3.esipe.fr.account_management;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -55,9 +56,17 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
         Transaction transaction = transactionListFiltered.get(position);
         //Context
         holder.transaction = transaction;
+        if (position % 2 == 1) {
+            holder.contentLayout.setBackgroundColor(Color.WHITE);
+        } else {
+            holder.contentLayout.setBackgroundColor(Color.rgb(234, 233, 236));
+        }
         holder.dateTextView.setText(transaction.getFormattedDate());
         holder.descriptionTextView.setText(transaction.getDescription());
         holder.amountTextView.setText(String.valueOf(transaction.getAmount()));
+        if(transaction.getAmount() > 0)
+            holder.amountTextView.setText("+ "+String.valueOf(transaction.getAmount())+" €");
+        else holder.amountTextView.setText(String.valueOf(transaction.getAmount())+" €");
 
     }
 

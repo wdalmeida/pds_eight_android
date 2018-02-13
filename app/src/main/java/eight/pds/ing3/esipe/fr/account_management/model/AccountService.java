@@ -23,6 +23,7 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 
 /**
@@ -31,19 +32,22 @@ import retrofit2.http.POST;
 
 public interface AccountService {
 
-    String ENDPOINT = "http://192.168.4.100:80/";
+    String ENDPOINT = "http://192.168.1.44:8095/";
 
 
     @POST("auth")
     Observable<ResponseBody> authenticate(@Body Credential credential);
 
 
-    @GET("accounts")
+    @GET("account")
     Observable<List<Account>> getAccounts(@Header("Authorization") String authHeader);
+
+    @GET("account/{account_number}")
+    Observable<List<Transaction>> getTransactions(@Path("account_number")String accountNumber,@Header("Authorization") String authHeader);
 
     class Creator {
 
-        //static HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
+
 
         static OkHttpClient client = new OkHttpClient.Builder().addInterceptor(new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
                 .addNetworkInterceptor(new StethoInterceptor())

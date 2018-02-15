@@ -45,6 +45,7 @@ public class RSSAdapter extends RecyclerView.Adapter<RSSAdapter.RSSViewHolder> {
 		AsyncTask<String, Void, Bitmap> asyncTask = new DownloadImage(RSSViewHolder.img)
 				.execute(rss.getImgLink());
 		Log.d(TAG, "onBindViewHolder: "+ RSSViewHolder.title.getText().toString());
+		RSSViewHolder.date.setText(rss.getPublishedDate());
 	}
 
 	@Override
@@ -61,6 +62,7 @@ public class RSSAdapter extends RecyclerView.Adapter<RSSAdapter.RSSViewHolder> {
 		protected String link;
 		protected TextView description;
 		protected ImageView img;
+		protected TextView date;
 
 
 
@@ -69,6 +71,7 @@ public class RSSAdapter extends RecyclerView.Adapter<RSSAdapter.RSSViewHolder> {
 			title = v.findViewById(R.id.txtTitle);
 			description = v.findViewById(R.id.txtDescription);
 			img = v.findViewById(R.id.imageView);
+			date=v.findViewById(R.id.txtDate);
 			v.setOnClickListener(v1 -> {
 				Intent intent = new Intent(context, RssWebView.class);
 				intent.putExtra("EXTRA_SESSION_ID", link);

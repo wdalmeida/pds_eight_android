@@ -9,6 +9,7 @@ public class RSSFeed {
 	private String link;
 	private String description;
 	private String imgLink;
+	private String publishedDate;
 
 	public RSSFeed() {
 	}
@@ -24,6 +25,14 @@ public class RSSFeed {
 		this.link = link;
 		this.description = description;
 		this.imgLink = imgLink;
+	}
+
+	public RSSFeed(String title, String link, String description, String imgLink, String publishedDate) {
+		this.title = title;
+		this.link = link;
+		this.description = description;
+		this.imgLink = imgLink;
+		this.publishedDate = publishedDate;
 	}
 
 	public String getTitle() {
@@ -58,6 +67,14 @@ public class RSSFeed {
 		this.imgLink = imgLink;
 	}
 
+	public String getPublishedDate() {
+		return publishedDate;
+	}
+
+	public void setPublishedDate(String publishedDate) {
+		this.publishedDate = publishedDate;
+	}
+
 	@Override
 	public String toString() {
 		return "RSSFeed{" +
@@ -65,6 +82,7 @@ public class RSSFeed {
 				", link='" + link + '\'' +
 				", description='" + description + '\'' +
 				", imgLink='" + imgLink + '\'' +
+				", publishedDate='" + publishedDate + '\'' +
 				'}';
 	}
 }

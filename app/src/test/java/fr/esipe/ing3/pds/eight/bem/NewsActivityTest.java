@@ -21,6 +21,7 @@ public class NewsActivityTest {
 	@Test
 	public void onCreate() throws Exception {
 		NewsActivity activity = Robolectric.setupActivity(NewsActivity.class);
+
 		Assert.assertTrue(activity.findViewById(R.id.cardList).isEnabled());
 	}
 

@@ -6,7 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
-import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.FirebaseApp;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,8 +40,10 @@ public class NewsActivity extends AppCompatActivity{
         LinearLayoutManager llm = new LinearLayoutManager(this);
         recList.setLayoutManager(llm);
 		//callOneNews();
+		FirebaseApp.initializeApp(this);
+		//NewsService ns = new NewsService();
+		//ns.onTokenRefresh();
 		callAllNews();
-		Log.d(TAG,FirebaseInstanceId.getInstance().getToken());
 
 	}
 

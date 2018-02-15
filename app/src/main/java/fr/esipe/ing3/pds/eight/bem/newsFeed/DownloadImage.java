@@ -32,7 +32,6 @@ public class DownloadImage extends AsyncTask<String, Void, Bitmap> {
 			bit = BitmapFactory.decodeStream(url.openStream());
 		} catch (IOException e) {
 			Log.d(TAG, "doInBackground: Error");
-			e.printStackTrace();
 		}
 		return bit;
 	}

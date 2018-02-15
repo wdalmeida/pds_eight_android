@@ -6,6 +6,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
+import com.google.firebase.iid.FirebaseInstanceId;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,7 +40,9 @@ public class NewsActivity extends AppCompatActivity{
 		recList = findViewById(R.id.cardList);
         LinearLayoutManager llm = new LinearLayoutManager(this);
         recList.setLayoutManager(llm);
-		callOneNews();
+		//callOneNews();
+		callAllNews();
+		Log.d(TAG,FirebaseInstanceId.getInstance().getToken());
 
 	}
 
@@ -61,6 +65,30 @@ public class NewsActivity extends AppCompatActivity{
 
 			@Override
 			public void onFailure(Call<RSSFeed> call, Throwable t) {
+				Log.d(TAG, "onFailure: "+t.toString());
+			}
+		});
+
+	}
+
+
+	/**
+	 *
+	 */
+	protected void callAllNews(){
+		Log.d(TAG, "CallAllNews");
+		Call<List<RSSFeed>> rssFeedCall= API.get().getRetrofitService().getBemNews();
+		rssFeedCall.enqueue(new Callback<List<RSSFeed>>() {
+			@Override
+			public void onResponse(Call<List<RSSFeed>> call, Response<List<RSSFeed>> response) {
+				Log.d(TAG, "onResponse: ");
+				if (response.code()==200){
+					recList.setAdapter(new RSSAdapter(response.body(), getApplicationContext()));
+				}
+			}
+
+			@Override
+			public void onFailure(Call<List<RSSFeed>> call, Throwable t) {
 				Log.d(TAG, "onFailure: "+t.toString());
 			}
 		});

@@ -1,5 +1,7 @@
 package fr.esipe.ing3.pds.eight.bem.rest;
 
+import java.util.List;
+
 import fr.esipe.ing3.pds.eight.bem.newsFeed.RSSFeed;
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -18,5 +20,12 @@ public interface APIService{
 	 */
 	@GET("/rss/{id}")
     Call<RSSFeed> getOneNews(@Path("id") int id);
+
+	/**
+	 *
+	 * @return
+	 */
+	@GET("/rss/bem")
+	Call<List<RSSFeed>> getBemNews();
 
 }

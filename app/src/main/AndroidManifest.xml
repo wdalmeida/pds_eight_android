@@ -41,7 +41,16 @@
 
 	<activity android:name=".newsFeed.NewsActivity">	</activity>
 	<activity android:name=".newsFeed.RssWebView">	</activity>
-
-</application>
+			<service android:name=".NewsNotification">
+			<intent-filter>
+				<action android:name="com.google.firebase.MESSAGING_EVENT"/>
+			</intent-filter>
+		</service>
+		<service android:name=".NewsService">
+			<intent-filter>
+				<action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+			</intent-filter>
+		</service>
+	</application>
 
 </manifest>

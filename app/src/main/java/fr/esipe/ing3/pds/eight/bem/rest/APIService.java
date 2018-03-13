@@ -1,6 +1,6 @@
 package fr.esipe.ing3.pds.eight.bem.rest;
 
-import fr.esipe.ing3.pds.eight.bem.RSSFeed;
+import fr.esipe.ing3.pds.eight.bem.newsFeed.RSSFeed;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;

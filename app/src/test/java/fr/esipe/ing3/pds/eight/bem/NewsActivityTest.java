@@ -7,6 +7,8 @@ import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 
+import fr.esipe.ing3.pds.eight.bem.newsFeed.NewsActivity;
+
 /**
  * @author Warren D'ALMEIDA
  */

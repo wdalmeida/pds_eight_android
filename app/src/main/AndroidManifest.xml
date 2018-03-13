@@ -17,8 +17,7 @@
         android:name=".account_management.view.ListAccountActivity"
         android:screenOrientation="portrait">
     </activity>
-    <activity
-        android:name=".account_management.view.LoginActivity"></activity>
+	<activity android:name=".account_management.view.LoginActivity" />
     <activity
         android:name=".account_management.view.HomeActivity"
         android:screenOrientation="portrait">

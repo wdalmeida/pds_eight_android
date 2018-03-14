@@ -1,4 +1,4 @@
-package fr.esipe.ing3.pds.eight.bem;
+package fr.esipe.ing3.pds.eight.bem.newsFeed;
 
 import android.util.Log;
 

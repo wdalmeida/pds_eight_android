@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+	android:id="@+id/swipeView"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="fr.esipe.ing3.pds.eight.bem.NewsActivity"
 	android:background="@color/whitedark">
@@ -11,4 +12,4 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
 			android:background="@color/whitedark"/>
-</android.support.constraint.ConstraintLayout>
+</android.support.v4.widget.SwipeRefreshLayout>

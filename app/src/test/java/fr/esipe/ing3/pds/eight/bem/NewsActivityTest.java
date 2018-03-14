@@ -7,6 +7,7 @@ import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 
+import fr.esipe.ing3.pds.eight.bem.account_management.app.ApplicationTest;
 import fr.esipe.ing3.pds.eight.bem.newsFeed.NewsActivity;
 
 /**
@@ -14,7 +15,7 @@ import fr.esipe.ing3.pds.eight.bem.newsFeed.NewsActivity;
  */
 
 @RunWith(RobolectricTestRunner.class)
-@Config(constants = BuildConfig.class)
+@Config(application = ApplicationTest.class,constants = BuildConfig.class)
 public class NewsActivityTest {
 
 

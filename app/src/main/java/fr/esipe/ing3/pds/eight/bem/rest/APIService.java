@@ -28,4 +28,11 @@ public interface APIService{
 	@GET("/rss/bem")
 	Call<List<RSSFeed>> getBemNews();
 
+	/**
+	 *
+	 * @return
+	 */
+	@GET("/rss/bfm")
+	Call<List<RSSFeed>> getBfmNews();
+
 }

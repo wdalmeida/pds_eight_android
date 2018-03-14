@@ -1,6 +1,7 @@
 package fr.esipe.ing3.pds.eight.bem.newsFeed;
 
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -45,7 +46,15 @@ public class NewsActivity extends AppCompatActivity{
 		//NewsService ns = new NewsService();
 		//ns.onTokenRefresh();
 		callAllNews();
+		SwipeRefreshLayout srl = findViewById(R.id.swipeView);
 
+		srl.setOnRefreshListener(
+				() -> {
+                    Log.i(TAG, "onRefresh");
+                    callAllNews();
+                    srl.setRefreshing(false);
+                }
+		);
 	}
 
 
@@ -80,6 +89,29 @@ public class NewsActivity extends AppCompatActivity{
 	protected void callAllNews(){
 		Log.d(TAG, "CallAllNews");
 		Call<List<RSSFeed>> rssFeedCall= API.get().getRetrofitService().getBemNews();
+		rssFeedCall.enqueue(new Callback<List<RSSFeed>>() {
+			@Override
+			public void onResponse(Call<List<RSSFeed>> call, Response<List<RSSFeed>> response) {
+				Log.d(TAG, "onResponse: ");
+				if (response.code()==200){
+					recList.setAdapter(new RSSAdapter(response.body(), getApplicationContext()));
+				}
+			}
+
+			@Override
+			public void onFailure(Call<List<RSSFeed>> call, Throwable t) {
+				Log.d(TAG, "onFailure: "+t.toString());
+			}
+		});
+
+	}
+
+	/**
+	 *
+	 */
+	protected void callAllNewsBFM(){
+		Log.d(TAG, "CallAllNewsBFM");
+		Call<List<RSSFeed>> rssFeedCall= API.get().getRetrofitService().getBfmNews();
 		rssFeedCall.enqueue(new Callback<List<RSSFeed>>() {
 			@Override
 			public void onResponse(Call<List<RSSFeed>> call, Response<List<RSSFeed>> response) {

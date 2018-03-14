@@ -7,7 +7,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import fr.esipe.ing3.pds.eight.bem.account_management.AccountApplication;
+import fr.esipe.ing3.pds.eight.bem.account_management.app.AccountApplication;
 import fr.esipe.ing3.pds.eight.bem.account_management.model.AccountService;
 import io.reactivex.Scheduler;
 

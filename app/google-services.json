@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "669846414687",
+    "firebase_url": "https://eight-app.firebaseio.com",
+    "project_id": "eight-app",
+    "storage_bucket": "eight-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:669846414687:android:f3adede1fc3c7359",
+        "android_client_info": {
+          "package_name": "fr.esipe.ing3.pds.eight.bem"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "669846414687-dvgon7n11ij4k7l0l5h894lcaa90gitf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAthF5p2hbpHfYQNCbNaSY-WpOAT-U_oJ0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

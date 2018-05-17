@@ -39,20 +39,19 @@
         android:layout_height="2dp"
         android:background="#c0c0c0"/>
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="fill_parent"
-        android:layout_height="55dp"
-        android:layout_marginTop="1dp"
-        android:background="#10326a"
-        android:text="CONTACTS"
-        android:drawableTint="@color/white"
-        android:drawableLeft="@drawable/ic_local_phone_black_36dp"
-        android:paddingLeft="15dp"
-        android:gravity="center_vertical"
-        android:drawablePadding="20dp"
-        android:textColor="@color/white"
-         />
+	<TextView
+		android:id="@+id/textView3"
+		android:layout_width="fill_parent"
+		android:layout_height="55dp"
+		android:layout_marginTop="1dp"
+		android:background="#10326a"
+		android:drawablePadding="20dp"
+		android:drawableTint="@color/white"
+		android:gravity="center_vertical"
+		android:paddingLeft="15dp"
+		android:text="ACTUALITE"
+		android:textColor="@color/white"
+		android:onClick="onClickNews"/>
 
     <TextView
         android:id="@+id/textView4"
